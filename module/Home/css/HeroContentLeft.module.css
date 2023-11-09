@@ -1,0 +1,12 @@
+.hero {
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+  height: rem(400px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
