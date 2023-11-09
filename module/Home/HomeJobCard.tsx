@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-async-client-component */
 "use client";
 
-import { Filter } from "@/layout/AppLayout";
 import {
   Card,
   Group,
@@ -18,26 +17,11 @@ import React, { useContext } from "react";
 
 type Props = {};
 
-async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WEB_URL}/api/category/`, {
-    next: { revalidate: 60 * 10 * 20 },
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
 const HomeJobCard = async () => {
-  const { filter, setFilter } = useContext(Filter);
-  const data = await getData();
-
   return (
     <Container size={"xl"} px={"xs"}>
       <Grid>
-        {data.map((item: any, i: number) => {
+        {/* {data.map((item: any, i: number) => {
           return (
             <Grid.Col key={i} span={{ base: 12, xs: 6, lg: 4 }}>
               <Link
@@ -60,7 +44,7 @@ const HomeJobCard = async () => {
               </Link>
             </Grid.Col>
           );
-        })}
+        })} */}
       </Grid>
     </Container>
   );
