@@ -1,8 +1,18 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { searchPagePaginationLength } from "@/constant/state";
 import SearchCard from "@/module/search/SearchCard";
-import { Container, Grid, Paper, Pagination, Text } from "@mantine/core";
-import { IconMoodEmpty } from "@tabler/icons-react";
+import {
+  Container,
+  Grid,
+  Paper,
+  Pagination,
+  Text,
+  Box,
+  Select,
+  Input,
+  Button,
+} from "@mantine/core";
+import { IconMoodEmpty, IconSearch } from "@tabler/icons-react";
 import React, { useState } from "react";
 import useSWR from "swr";
 
@@ -18,7 +28,29 @@ const index = (props: Props) => {
   return (
     <div>
       <Container size={"lg"} my={"lg"}>
-        <Grid>
+        <Paper p={"xs"} mb={"sm"}>
+          <Grid align="end" gutter={"xs"}>
+            <Grid.Col span={{ base: 12, xs: 4, sm: 3, md: 3 }}>
+              <Select
+                data={["Chust", "Pop", "To'raqo'rg'on"]}
+                defaultValue={"Chust"}
+                variant="filled"
+              />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, xs: 6, sm: 7 }}>
+              <Input
+                placeholder="Search job"
+                leftSection={<IconSearch size={"16px"} color="gray" />}
+              />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, xs: 2 }}>
+              <Button variant="filled" fullWidth>
+                Search
+              </Button>
+            </Grid.Col>
+          </Grid>
+        </Paper>
+        <Grid gutter={"xs"}>
           {data.results.length == 0 ? (
             <Paper
               p={"xl"}

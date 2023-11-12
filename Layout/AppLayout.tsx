@@ -1,5 +1,6 @@
 import AppFooter from "@/components/Footer/AppFooter";
 import AppHeader from "@/components/Navbar/AppHeader";
+import AppNavbar from "@/components/Navbar/AppNavbar";
 import { AppShell, Group, Burger, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Head from "next/head";
@@ -30,7 +31,7 @@ const AppLayout = ({ children }: Props) => {
       >
         <AppHeader opened={opened} toggle={toggle} />
 
-        <AppShell.Navbar py="md" px={4}></AppShell.Navbar>
+        <AppNavbar toggle={toggle} />
 
         <AppShell.Main>
           {children}
