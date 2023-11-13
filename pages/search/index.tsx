@@ -11,6 +11,7 @@ import {
   Select,
   Input,
   Button,
+  Skeleton,
 } from "@mantine/core";
 import { IconMoodEmpty, IconSearch } from "@tabler/icons-react";
 import React, { useState } from "react";
@@ -23,7 +24,6 @@ const index = (props: Props) => {
   const [activePage, setPage] = useState<any>(1);
 
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
 
   return (
     <div>
@@ -51,32 +51,36 @@ const index = (props: Props) => {
           </Grid>
         </Paper>
         <Grid gutter={"xs"}>
-          {data.results.length == 0 ? (
-            <Paper
-              p={"xl"}
-              w={"100%"}
-              radius={"md"}
-              style={{ textAlign: "center" }}
-            >
-              <IconMoodEmpty size={"100px"} />
-              <Text fw={"600"} size="lg" c={"gray.6"}>
-                {"Bu yo'nalishda ish o'rinlari topilmadi"}
-              </Text>{" "}
-            </Paper>
-          ) : (
-            data.results.map((item: any, i: number) => {
-              return <SearchCard data={item} key={i} />;
-            })
-          )}
+          {isLoading
+            ? Array(6)
+                .fill(0)
+                .map((_, i) => {
+                  return (
+                    <Grid.Col key={i} span={{ base: 12, lg: 6 }}>
+                      <Paper p={"xs"} w={"100%"}>
+                        <Skeleton h={200} radius={"xs"} />
+                      </Paper>
+                    </Grid.Col>
+                  );
+                })
+            : data.results.map((item: any, i: number) => {
+                return <SearchCard data={item} key={i} />;
+              })}
         </Grid>
-        <Pagination
-          total={Math.ceil(data.count / searchPagePaginationLength)}
-          value={activePage}
-          onChange={(value) => {
-            setPage(value);
-          }}
-          mt={"lg"}
-        />
+        {isLoading ? (
+          <></>
+        ) : (
+          <>
+            <Pagination
+              total={Math.ceil(data.count / searchPagePaginationLength)}
+              value={activePage}
+              onChange={(value) => {
+                setPage(value);
+              }}
+              mt={"lg"}
+            />
+          </>
+        )}
       </Container>
     </div>
   );

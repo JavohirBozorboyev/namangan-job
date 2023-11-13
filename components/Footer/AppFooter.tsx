@@ -31,7 +31,9 @@ const links = [
 export default function AppFooter() {
   const items = links.map((link) => (
     <Link key={link.label} href={link.link} style={{ textDecoration: "none" }}>
-      <Text c={"dimmed"}>{link.label}</Text>
+      <Text c={"dimmed"} size="xs">
+        {link.label}
+      </Text>
     </Link>
   ));
 
@@ -45,7 +47,7 @@ export default function AppFooter() {
           flexWrap: "wrap",
         }}
       >
-        <Grid py={'50px'} w={"100%"}>
+        <Grid py={"50px"} w={"100%"}>
           <Grid.Col
             span={{
               base: 12,
@@ -71,7 +73,7 @@ export default function AppFooter() {
               mb={"xs"}
               c={"white"}
             >
-              About
+              Page
             </Text>
             <Flex wrap={"wrap"} gap={"5px"} direction={"column"}>
               {items}
@@ -113,7 +115,7 @@ export default function AppFooter() {
               mb={"xs"}
               c={"white"}
             >
-              About
+              Developing
             </Text>
             <Flex wrap={"wrap"} gap={"5px"} direction={"column"}>
               {items}
@@ -123,13 +125,15 @@ export default function AppFooter() {
 
         <Grid
           style={{ borderTop: "1px solid grey" }}
-          py={'xl'}
+          py={"xl"}
           w={"100%"}
           align="center"
           justify="space-around"
         >
           <Grid.Col span={"auto"}>
-            <Text c={"dimmed"}>© 2023 . All rights reserved.</Text>
+            <Text c={"dimmed"} size="xs">
+              © 2023 . All rights reserved.
+            </Text>
           </Grid.Col>
           <Grid.Col span={"auto"}>
             <Group gap={0} justify="flex-end" wrap="nowrap">

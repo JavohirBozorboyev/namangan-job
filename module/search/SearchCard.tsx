@@ -1,6 +1,11 @@
 "use client";
 import { Grid, Card, Group, Button, Pagination, Text } from "@mantine/core";
-import { IconSquareCheck, IconBriefcase, IconMap2 } from "@tabler/icons-react";
+import {
+  IconSquareCheck,
+  IconBriefcase,
+  IconMap2,
+  IconPhone,
+} from "@tabler/icons-react";
 import React, { useContext } from "react";
 
 type Props = {
@@ -59,8 +64,11 @@ const SearchCard = ({ data }: Props) => {
             {data.about}
           </Text>
           <Group mt={"md"}>
-            <Button>Batafsil</Button>
-            <Button variant="outline">Contact</Button>
+            <a href={`tel:${data.phone}`}>
+              <Button leftSection={<IconPhone size={"20px"} />}>
+                Telefon Raqam
+              </Button>
+            </a>
           </Group>
         </Card>
       </Grid.Col>

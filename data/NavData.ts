@@ -9,6 +9,6 @@ export const NavData = [
   },
   {
     name: "Monomarkazlar",
-    url: "/",
+    url: "/edu",
   },
 ];
