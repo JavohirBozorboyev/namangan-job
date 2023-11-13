@@ -1,8 +1,10 @@
 import AppFooter from "@/components/Footer/AppFooter";
 import AppHeader from "@/components/Navbar/AppHeader";
 import AppNavbar from "@/components/Navbar/AppNavbar";
-import { AppShell, Group, Burger, UnstyledButton } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import BottomNavigation from "@/components/Navbar/BottomNavigation";
+import { AppShell, rem } from "@mantine/core";
+import { useDisclosure, useHeadroom } from "@mantine/hooks";
+
 import Head from "next/head";
 import React, { ReactNode } from "react";
 
@@ -12,6 +14,7 @@ type Props = {
 
 const AppLayout = ({ children }: Props) => {
   const [opened, { toggle }] = useDisclosure();
+  const pinned = useHeadroom({ fixedAt: 120 });
   return (
     <div>
       <Head>
@@ -21,7 +24,7 @@ const AppLayout = ({ children }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AppShell
-        header={{ height: 60 }}
+        header={{ height: 60, collapsed: !pinned, offset: false }}
         navbar={{
           width: 300,
           breakpoint: "sm",
@@ -33,9 +36,10 @@ const AppLayout = ({ children }: Props) => {
 
         <AppNavbar toggle={toggle} />
 
-        <AppShell.Main>
+        <AppShell.Main pt={`calc(${rem(60)} + var(--mantine-spacing-md))`}>
           {children}
           <AppFooter />
+          <BottomNavigation />
         </AppShell.Main>
       </AppShell>
     </div>

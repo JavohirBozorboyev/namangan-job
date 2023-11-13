@@ -29,6 +29,7 @@ const RandomColor = [
   "green",
   "yellow",
   "orange",
+  "black",
 ];
 
 const HomeJobCard = () => {

@@ -31,7 +31,7 @@ export function Contact() {
         <Paper p={"xl"}>
           <Title
             order={2}
-            size="h1"
+            size="h2"
             style={{ fontFamily: "Greycliff CF, var(--mantine-font-family)" }}
             fw={900}
             ta="center"
