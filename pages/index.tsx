@@ -11,11 +11,9 @@ export default function Home() {
   return (
     <>
       <main>
-        <Container size={"xl"} p={"xs"}>
-          <HomeHeroHeader />
-          <HomeJobCard />
-          <Contact />
-        </Container>
+        <HomeHeroHeader />
+        <HomeJobCard />
+        <Contact />
       </main>
     </>
   );
