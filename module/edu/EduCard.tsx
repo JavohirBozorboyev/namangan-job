@@ -1,5 +1,5 @@
 "use client";
-import { Grid, Card, Group, Button, Pagination, Text } from "@mantine/core";
+import { Grid, Card, Group, Button, Image, Text } from "@mantine/core";
 import {
   IconSquareCheck,
   IconBriefcase,
@@ -12,28 +12,30 @@ type Props = {
   data: any;
 };
 
-const SearchCard = ({ data }: Props) => {
+const EduCard = ({ data }: Props) => {
   const formatter = new Intl.NumberFormat("uz", {
     style: "currency",
     currency: "UZS",
     useGrouping: true,
   });
 
+  console.log(data);
+
   return (
     <>
       <Grid.Col span={{ base: 12, lg: 6 }}>
-        <Card withBorder shadow="sm" radius={"xs"} padding="md">
-          <Text fw={700} size="xl" c="blue">
-            {data.position}
-          </Text>
-          <Text fw={500} my={"5px"} size="lg" c="dark">
-            {data.salary}
-          </Text>
+        <Card withBorder shadow="sm" radius={"md"} padding="md">
+          <Card.Section>
+            <Image
+              src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
+              height={240}
+              alt="Norway"
+            />
+          </Card.Section>
           <Group>
-            <Text size="sm" c={"dimmed"}>
-              {data.name.slice(0, 40)}...
+            <Text size="xl" fw={"bold"} c={"blue"}>
+              {data.name}
             </Text>
-            <IconSquareCheck color="gray" size={"20px"} />
           </Group>
           {data.experience ? (
             <Group gap={"xs"} mt={"xs"}>
@@ -61,11 +63,14 @@ const SearchCard = ({ data }: Props) => {
           </Group>
 
           <Text mt="xs" c="dimmed" size="sm">
-            {data.about}
+            {data.about.slice(0, 200)} ...
           </Text>
           <Group mt={"md"}>
             <a href={`tel:${data.phone}`}>
-              <Button leftSection={<IconPhone size={"20px"} />}>
+              <Button
+                variant="outline"
+                leftSection={<IconPhone size={"20px"} />}
+              >
                 Telefon Raqam
               </Button>
             </a>
@@ -76,4 +81,4 @@ const SearchCard = ({ data }: Props) => {
   );
 };
 
-export default SearchCard;
+export default EduCard;

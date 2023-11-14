@@ -14,6 +14,7 @@ import {
   Paper,
 } from "@mantine/core";
 import { IconMap, IconMapPin, IconPencil } from "@tabler/icons-react";
+import { getCookie } from "cookies-next";
 import Link from "next/link";
 import React, { useContext } from "react";
 import useSWR from "swr";
@@ -33,7 +34,7 @@ const RandomColor = [
 ];
 
 const HomeJobCard = () => {
-  const { data, error, isLoading } = useSWR("/api/region/");
+  const { data, error, isLoading } = useSWR(`/api/uz/region/`);
 
   if (isLoading) {
     return (
@@ -57,7 +58,7 @@ const HomeJobCard = () => {
   return (
     <Container size={"xl"} px={"xs"} my={"xl"}>
       <Grid>
-        {data.results.map((item: any, i: number) => {
+        {data.map((item: any, i: number) => {
           let color = RandomColor[Math.round(Math.random() * 8)];
           return (
             <Grid.Col key={i} span={{ base: 12, xs: 6, lg: 4 }}>

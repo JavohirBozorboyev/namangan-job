@@ -15,7 +15,7 @@ import {
   Flex,
 } from "@mantine/core";
 
-import Logo from "../../public/favicon.ico";
+import Logo from "../../public/logo.png";
 import Image from "next/image";
 import { NavData } from "@/data/NavData";
 import Link from "next/link";
@@ -33,7 +33,7 @@ export default function AppHeader({ opened, toggle }: any) {
             h="100%"
             px="md"
           >
-            <Group>
+            <Group align="center">
               <Burger
                 opened={opened}
                 onClick={toggle}
@@ -42,7 +42,7 @@ export default function AppHeader({ opened, toggle }: any) {
                 bg={"gray.1"}
                 style={{ borderRadius: "4px" }}
               />
-              <Image src={Logo} alt={""} width={40} height={40} />
+              <Image src={Logo} alt={""} height={40} />
             </Group>
             <Group visibleFrom="sm">
               {NavData.map((item, i) => {

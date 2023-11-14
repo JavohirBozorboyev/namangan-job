@@ -14,16 +14,22 @@ import {
   Skeleton,
 } from "@mantine/core";
 import { IconMoodEmpty, IconSearch } from "@tabler/icons-react";
+import { deleteCookie, getCookie } from "cookies-next";
 import React, { useState } from "react";
 import useSWR from "swr";
 
 type Props = {};
 
 const index = (props: Props) => {
-  const { data, isLoading, error } = useSWR("api/vacancy/");
+  const { data, isLoading, error } = useSWR(
+    `/api/${getCookie("lang")}/vacancy/`
+  );
   const [activePage, setPage] = useState<any>(1);
 
-  if (error) return <div>failed to load</div>;
+  if (error) {
+    deleteCookie("lang");
+    return <div>failed to load</div>;
+  }
 
   return (
     <div>
