@@ -31,7 +31,7 @@ const SearchCard = ({ data }: Props) => {
           </Text>
           <Group>
             <Text size="sm" c={"dimmed"}>
-              {data.name.slice(0, 40)}...
+              {data.name}
             </Text>
             <IconSquareCheck color="gray" size={"20px"} />
           </Group>

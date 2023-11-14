@@ -25,7 +25,6 @@ const index = (props: Props) => {
   const { data, isLoading, error } = useSWR(
     `/api/${getCookie("lang")}/study_center/`
   );
-  const [activePage, setPage] = useState<any>(1);
 
   if (error) {
     deleteCookie("lang");
@@ -34,7 +33,7 @@ const index = (props: Props) => {
 
   return (
     <div>
-      <Container size={"lg"} my={"lg"}>
+      <Container size={"lg"} mb={'md'}>
         <Grid gutter={"xs"}>
           {isLoading
             ? Array(6)
@@ -48,7 +47,7 @@ const index = (props: Props) => {
                     </Grid.Col>
                   );
                 })
-            : data.results.map((item: any, i: number) => {
+            : data.map((item: any, i: number) => {
                 return <EduCard data={item} key={i} />;
               })}
         </Grid>

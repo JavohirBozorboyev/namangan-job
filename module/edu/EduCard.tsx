@@ -19,11 +19,9 @@ const EduCard = ({ data }: Props) => {
     useGrouping: true,
   });
 
-  console.log(data);
-
   return (
     <>
-      <Grid.Col span={{ base: 12, lg: 6 }}>
+      <Grid.Col span={{ base: 12, sm: 6 }}>
         <Card withBorder shadow="sm" radius={"md"} padding="md">
           <Card.Section>
             <Image
@@ -32,38 +30,21 @@ const EduCard = ({ data }: Props) => {
               alt="Norway"
             />
           </Card.Section>
-          <Group>
+          <Group mt={"md"}>
             <Text size="xl" fw={"bold"} c={"blue"}>
               {data.name}
             </Text>
           </Group>
-          {data.experience ? (
-            <Group gap={"xs"} mt={"xs"}>
-              <IconBriefcase color="gray" size={"20px"} />
-              <Text size="sm" c={"dimmed"}>
-                {data.experience}
-              </Text>
-            </Group>
-          ) : null}
-          {data.languages ? (
-            <Group gap={"xs"} mt={"xs"}>
-              <Text size="sm" c={"dimmed"}>
-                Til:
-              </Text>
-              <Text size="sm" c={"dimmed"}>
-                {data.languages}
-              </Text>
-            </Group>
-          ) : null}
+
           <Group gap={"xs"} mt={"xs"}>
             <IconMap2 color="gray" size={"20px"} />
-            <Text size="sm" c={"dimmed"}>
-              {data.region_name}
+            <Text size="md" c={"gray.7"}>
+              {data.adress}
             </Text>
           </Group>
 
           <Text mt="xs" c="dimmed" size="sm">
-            {data.about.slice(0, 200)} ...
+            {data.about} ...
           </Text>
           <Group mt={"md"}>
             <a href={`tel:${data.phone}`}>

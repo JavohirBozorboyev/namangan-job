@@ -34,7 +34,9 @@ const RandomColor = [
 ];
 
 const HomeJobCard = () => {
-  const { data, error, isLoading } = useSWR(`/api/uz/region/`);
+  const { data, error, isLoading } = useSWR(
+    `/api/${getCookie("lang")}/region/`
+  );
 
   if (isLoading) {
     return (
