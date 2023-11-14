@@ -24,11 +24,7 @@ const EduCard = ({ data }: Props) => {
       <Grid.Col span={{ base: 12, sm: 6 }}>
         <Card withBorder shadow="sm" radius={"md"} padding="md">
           <Card.Section>
-            <Image
-              src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-              height={240}
-              alt="Norway"
-            />
+            <Image src={data.photo} height={240} alt="Norway" />
           </Card.Section>
           <Group mt={"md"}>
             <Text size="xl" fw={"bold"} c={"blue"}>

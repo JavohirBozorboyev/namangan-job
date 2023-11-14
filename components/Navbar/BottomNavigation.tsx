@@ -20,6 +20,7 @@ const BottomNavigation = (props: Props) => {
           zIndex: 1000,
           bottom: 0,
           background: "#fff",
+          borderTop: "1px solid #A9ADB9",
         }}
         hiddenFrom="sm"
       >

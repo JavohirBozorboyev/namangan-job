@@ -1,5 +1,13 @@
 "use client";
-import { Grid, Card, Group, Button, Pagination, Text } from "@mantine/core";
+import {
+  Grid,
+  Card,
+  Group,
+  Button,
+  Pagination,
+  Text,
+  Flex,
+} from "@mantine/core";
 import {
   IconSquareCheck,
   IconBriefcase,
@@ -21,38 +29,29 @@ const SearchCard = ({ data }: Props) => {
 
   return (
     <>
-      <Grid.Col span={{ base: 12, lg: 6 }}>
-        <Card withBorder shadow="sm" radius={"xs"} padding="md">
+      <Grid.Col span={{ base: 12, md: 6 }}>
+        <Card
+          withBorder
+          shadow="sm"
+          radius={"md"}
+          p="md"
+          pl={'lg'}
+          h={"100%"}
+          style={{ borderLeft: "10px solid #3984FE" }}
+        >
           <Text fw={700} size="xl" c="blue">
             {data.position}
           </Text>
           <Text fw={500} my={"5px"} size="lg" c="dark">
             {data.salary}
           </Text>
-          <Group>
-            <Text size="sm" c={"dimmed"}>
-              {data.name}
-            </Text>
+          <Flex gap={"xs"}>
             <IconSquareCheck color="gray" size={"20px"} />
-          </Group>
-          {data.experience ? (
-            <Group gap={"xs"} mt={"xs"}>
-              <IconBriefcase color="gray" size={"20px"} />
-              <Text size="sm" c={"dimmed"}>
-                {data.experience}
-              </Text>
-            </Group>
-          ) : null}
-          {data.languages ? (
-            <Group gap={"xs"} mt={"xs"}>
-              <Text size="sm" c={"dimmed"}>
-                Til:
-              </Text>
-              <Text size="sm" c={"dimmed"}>
-                {data.languages}
-              </Text>
-            </Group>
-          ) : null}
+            <Text size="sm" c={"dimmed"}>
+              {data.name.slice(0, 80)}
+            </Text>
+          </Flex>
+
           <Group gap={"xs"} mt={"xs"}>
             <IconMap2 color="gray" size={"20px"} />
             <Text size="sm" c={"dimmed"}>
@@ -63,7 +62,7 @@ const SearchCard = ({ data }: Props) => {
           <Text mt="xs" c="dimmed" size="sm">
             {data.about}
           </Text>
-          <Group mt={"md"}>
+          <Group mt={"xs"}>
             <a href={`tel:${data.phone}`}>
               <Button leftSection={<IconPhone size={"20px"} />}>
                 Telefon Raqam

@@ -8,10 +8,12 @@ import { getCookie, setCookie } from "cookies-next";
 
 import Head from "next/head";
 import React, { ReactNode } from "react";
+import { createContext } from "vm";
 
 type Props = {
   children: ReactNode;
 };
+
 
 const AppLayout = ({ children }: Props) => {
   const [opened, { toggle }] = useDisclosure();

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-async-client-component */
 "use client";
 
+import { FilterContext } from "@/pages/_app";
 import {
   Card,
   Group,
@@ -38,6 +39,8 @@ const HomeJobCard = () => {
     `/api/${getCookie("lang")}/region/`
   );
 
+  const { filter, setFilter }: any = useContext(FilterContext);
+
   if (isLoading) {
     return (
       <Container size={"xl"} px={"xs"} my={"xl"}>
@@ -67,9 +70,9 @@ const HomeJobCard = () => {
               <Link
                 href={"/search"}
                 style={{ textDecoration: "none" }}
-                // onClick={() => {
-                //   setFilter({ category: item.id, addres: filter.addres });
-                // }}
+                onClick={() => {
+                  setFilter({ region: `${item.id}`, addres: filter.category });
+                }}
               >
                 <Card
                   shadow="sm"
