@@ -46,83 +46,8 @@ export default function AppFooter() {
           justifyContent: "space-between",
           flexWrap: "wrap",
         }}
+        pb={{ base: "40px", sm: "0" }}
       >
-        <Grid py={"50px"} w={"100%"}>
-          <Grid.Col
-            span={{
-              base: 12,
-              xs: 6,
-              sm: 3,
-              md: 6,
-            }}
-          >
-            <Image src={Logo} width={35} height={35} alt={""} />
-          </Grid.Col>
-          <Grid.Col
-            span={{
-              base: 12,
-              xs: 6,
-              sm: 3,
-              md: 2,
-            }}
-          >
-            {" "}
-            <Text
-              w={{ base: "100%", sm: "50%" }}
-              fw={"bold"}
-              mb={"xs"}
-              c={"white"}
-            >
-              Page
-            </Text>
-            <Flex wrap={"wrap"} gap={"5px"} direction={"column"}>
-              {items}
-            </Flex>
-          </Grid.Col>
-          <Grid.Col
-            span={{
-              base: 12,
-              xs: 6,
-              sm: 3,
-              md: 2,
-            }}
-          >
-            {" "}
-            <Text
-              w={{ base: "100%", sm: "50%" }}
-              fw={"bold"}
-              mb={"xs"}
-              c={"white"}
-            >
-              About
-            </Text>
-            <Flex wrap={"wrap"} gap={"5px"} direction={"column"}>
-              {items}
-            </Flex>
-          </Grid.Col>
-          <Grid.Col
-            span={{
-              base: 12,
-              xs: 6,
-              sm: 3,
-              md: 2,
-            }}
-          >
-            {" "}
-            <Text
-              w={{ base: "100%", sm: "50%" }}
-              fw={"bold"}
-              mb={"xs"}
-              c={"white"}
-            >
-              Developing
-            </Text>
-            <Flex wrap={"wrap"} gap={"5px"} direction={"column"}>
-              {items}
-            </Flex>
-          </Grid.Col>
-        </Grid>
-
         <Grid
           style={{ borderTop: "1px solid grey" }}
           py={"xl"}

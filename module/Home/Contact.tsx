@@ -27,8 +27,8 @@ export function Contact() {
 
   return (
     <form onSubmit={form.onSubmit(() => {})}>
-      <Container my={"xl"} p={"xs"} style={{ borderRadius: "5px" }} size={"xl"}>
-        <Paper p={"xl"}>
+      <Container my={"xl"} p={"xs"} size={"xl"}>
+        <Paper p={"xl"} radius={"xl"}>
           <Title
             order={2}
             size="h2"
@@ -36,7 +36,7 @@ export function Contact() {
             fw={900}
             ta="center"
           >
-            Biz bilan bog'lanish
+            {"Biz bilan bog'lanish"}
           </Title>
 
           <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">

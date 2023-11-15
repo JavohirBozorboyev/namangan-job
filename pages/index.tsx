@@ -5,12 +5,12 @@ import { Container, Divider } from "@mantine/core";
 import { Contact } from "@/module/Home/Contact";
 import HomeJobCard from "@/module/Home/HomeJobCard";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["cyrillic-ext"] });
 
 export default function Home() {
   return (
     <>
-      <main>
+      <main style={{ fontFamily: `${inter.style}` }}>
         <HomeHeroHeader />
         <HomeJobCard />
         <Contact />
