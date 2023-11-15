@@ -30,22 +30,14 @@ const SearchCard = ({ data }: Props) => {
   return (
     <>
       <Grid.Col span={{ base: 12, md: 6 }}>
-        <Card
-          withBorder
-          shadow="sm"
-          radius={"md"}
-          p="md"
-          pl={'lg'}
-          h={"100%"}
-          style={{ borderLeft: "10px solid #3984FE" }}
-        >
-          <Text fw={700} size="xl" c="blue">
+        <Card radius={"xl"} p="md" pl={"lg"} h={"100%"}>
+          <Text fw={700} size="lg" c="blue">
             {data.position}
           </Text>
-          <Text fw={500} my={"5px"} size="lg" c="dark">
+          <Text fw={500} mt={"xs"} size="md" c="dark.6">
             {data.salary}
           </Text>
-          <Flex gap={"xs"}>
+          <Flex gap={"xs"} mt={"xs"}>
             <IconSquareCheck color="gray" size={"20px"} />
             <Text size="sm" c={"dimmed"}>
               {data.name.slice(0, 80)}
@@ -64,8 +56,12 @@ const SearchCard = ({ data }: Props) => {
           </Text>
           <Group mt={"xs"}>
             <a href={`tel:${data.phone}`}>
-              <Button leftSection={<IconPhone size={"20px"} />}>
-                Telefon Raqam
+              <Button
+                radius={"xl"}
+                leftSection={<IconPhone size={"17px"} />}
+                variant="light"
+              >
+                {"Qo'ng'iroq qilish"}
               </Button>
             </a>
           </Group>

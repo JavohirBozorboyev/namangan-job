@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["cyrillic-ext"] });
 export default function Home() {
   return (
     <>
-      <main style={{ fontFamily: `${inter.style}` }}>
+      <main>
         <HomeHeroHeader />
         <HomeJobCard />
         <Contact />

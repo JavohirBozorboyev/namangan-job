@@ -1,5 +1,10 @@
 import { Tabs } from "@mantine/core";
-import { IconHome, IconSearch, IconLayoutGrid } from "@tabler/icons-react";
+import {
+  IconHome,
+  IconSearch,
+  IconLayoutGrid,
+  IconSmartHome,
+} from "@tabler/icons-react";
 import router, { useRouter } from "next/router";
 import React from "react";
 
@@ -11,25 +16,32 @@ const BottomNavigation = (props: Props) => {
   return (
     <div>
       <Tabs
+        variant="pills"
         value={router.query.activeTab as string}
         onChange={(value) => router.push(`${value}`)}
-        defaultValue="gallery"
+        defaultValue={router.route}
         style={{
           position: "fixed",
-          width: "100%",
-          zIndex: 1000,
+          left: 0,
+          right: 0,
+          zIndex: 99,
           bottom: 0,
-          background: "#fff",
-          borderTop: "1px solid #A9ADB9",
+          borderRadius: "20px",
+          border: "1px solid #F3F3FE",
         }}
+        m={"5px"}
+        mb={"1px"}
         hiddenFrom="sm"
+        radius={"xl"}
+        bg={"#fff"}
       >
         <Tabs.List grow>
           <Tabs.Tab
             value="/"
             leftSection={
-              <IconHome
-                color={`${router.route == "/" ? "#0063FF" : "#4A5167"}`}
+              <IconSmartHome
+                size={"22"}
+                color={`${router.route == "/" ? "#fff" : "#4A5167"}`}
               />
             }
           ></Tabs.Tab>
@@ -37,7 +49,8 @@ const BottomNavigation = (props: Props) => {
             value="/search"
             leftSection={
               <IconSearch
-                color={`${router.route == "/search" ? "#0063FF" : "#4A5167"}`}
+                size={"22"}
+                color={`${router.route == "/search" ? "#fff" : "#4A5167"}`}
               />
             }
           ></Tabs.Tab>
@@ -45,7 +58,8 @@ const BottomNavigation = (props: Props) => {
             value="/edu"
             leftSection={
               <IconLayoutGrid
-                color={`${router.route == "/edu" ? "#0063FF" : "#4A5167"}`}
+                size={"22"}
+                color={`${router.route == "/edu" ? "#fff" : "#4A5167"}`}
               />
             }
           ></Tabs.Tab>

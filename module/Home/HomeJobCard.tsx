@@ -87,13 +87,13 @@ const HomeJobCard = () => {
                   }}
                 >
                   <Card
-                    padding="lg"
+                    padding="md"
                     radius="xl"
                     withBorder
                     // style={{ borderLeft: `10px solid ${color}` }}
                   >
                     <Group justify="space-between">
-                      <Text fw={500} c={'dimmed'}>{item.name}</Text>
+                      <Text fw={500} size="sm" c={'dimmed'}>{item.name}</Text>
                       <IconMapPin color={`${color}`} />
                     </Group>
                   </Card>

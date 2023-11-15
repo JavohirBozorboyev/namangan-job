@@ -38,7 +38,7 @@ export default function AppFooter() {
   ));
 
   return (
-    <Paper bg={"dark.9"} radius={"0"}>
+    <Paper bg={"#fff"} radius={"0"}>
       <Container
         size={"xl"}
         style={{
@@ -48,13 +48,7 @@ export default function AppFooter() {
         }}
         pb={{ base: "40px", sm: "0" }}
       >
-        <Grid
-          style={{ borderTop: "1px solid grey" }}
-          py={"xl"}
-          w={"100%"}
-          align="center"
-          justify="space-around"
-        >
+        <Grid py={"xl"} w={"100%"} align="center" justify="space-around">
           <Grid.Col span={"auto"}>
             <Text c={"dimmed"} size="xs">
               © 2023 . All rights reserved.

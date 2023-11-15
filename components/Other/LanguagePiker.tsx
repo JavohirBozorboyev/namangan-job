@@ -10,6 +10,7 @@ const LanguagePiker = (props: Props) => {
   return (
     <div>
       <Select
+        radius={'xl'}
         data={[
           { value: "uz", label: "Uzb" },
           { value: "kr", label: "Krl" },

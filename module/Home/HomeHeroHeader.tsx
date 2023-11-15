@@ -84,17 +84,17 @@ export default function HomeHeroHeader() {
               radius={'xl'}
               
               leftSection={
-                <IconSearch style={{ width: rem(16), height: rem(16) }} />
+                <IconSearch style={{ width: rem(20), height: rem(20) }} />
               }
               style={{
                 padding: "15px 0",
               }}
-              variant="filled"
+              // variant="filled"
               size="lg"
               w={"100%"}
             />
             <Link href={"/search"}>
-              <Button size="md" radius={'xl'} >
+              <Button size="lg" radius={'xl'} >
                 {matches ? (
                   "Search"
                 ) : (
