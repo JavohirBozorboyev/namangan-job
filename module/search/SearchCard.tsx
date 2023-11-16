@@ -7,13 +7,14 @@ import {
   Pagination,
   Text,
   Flex,
+  ActionIcon,
 } from "@mantine/core";
 import {
-  IconSquareCheck,
-  IconBriefcase,
-  IconMap2,
   IconPhone,
-  IconCoin,
+  IconUser,
+  IconCurrencyDollar,
+  IconBuilding,
+  IconMapPin,
 } from "@tabler/icons-react";
 import React, { useContext } from "react";
 
@@ -31,26 +32,40 @@ const SearchCard = ({ data }: Props) => {
   return (
     <>
       <Grid.Col span={{ base: 12, md: 6 }}>
-        <Card radius={"xl"} p="md" pl={"lg"} h={"100%"}>
-          <Text fw={600} size="md" c="blue">
-            {data.position}
-          </Text>
+        <Card radius={"xl"} p="md" h={"100%"}>
+          <Flex align={"center"} gap={"xs"} mt={"xs"}>
+            <ActionIcon radius={"lg"} size={"md"} variant="light">
+              <IconUser size={"18px"} />
+            </ActionIcon>
+
+            <Text fw={600} size="md" c="blue">
+              {data.position}
+            </Text>
+          </Flex>
 
           <Flex align={"center"} gap={"xs"} mt={"xs"}>
-            <IconCoin color="gray" size={"20px"} />
+            <ActionIcon radius={"lg"} size={"md"} variant="light">
+              <IconCurrencyDollar size={"18px"} />
+            </ActionIcon>
             <Text size="md" c="dark.6">
               {data.salary}
             </Text>
           </Flex>
           <Flex align={"center"} gap={"xs"} mt={"xs"}>
-            <IconSquareCheck color="gray" size={"20px"} />
+            <ActionIcon radius={"lg"} size={"md"} variant="light">
+              <IconBuilding size={"18px"} />
+            </ActionIcon>
+
             <Text size="sm" c={"dimmed"}>
               {data.name.slice(0, 80)}
             </Text>
           </Flex>
 
           <Group gap={"xs"} mt={"xs"}>
-            <IconMap2 color="gray" size={"20px"} />
+            <ActionIcon radius={"lg"} size={"md"} variant="light">
+              <IconMapPin size={"18px"} />
+            </ActionIcon>
+
             <Text size="sm" c={"dimmed"}>
               {data.region_name}
             </Text>
