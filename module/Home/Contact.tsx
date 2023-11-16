@@ -20,7 +20,7 @@ export function Contact() {
     },
     validate: {
       name: (value) => value.trim().length < 2,
-      email: (value) => !/^\S+@\S+$/.test(value),
+      email: (value) => value.trim().length < 3,
       subject: (value) => value.trim().length === 0,
     },
   });

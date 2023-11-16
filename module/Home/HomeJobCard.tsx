@@ -43,21 +43,29 @@ const HomeJobCard = () => {
 
   if (isLoading) {
     return (
-      <Container size={"xl"} px={"xs"} my={"xl"}>
-        <Grid>
-          {Array(6)
-            .fill(0)
-            .map((_, i) => {
-              return (
-                <Grid.Col key={i} span={{ base: 12, xs: 6, lg: 4 }}>
-                  <Paper bg={"white"} p={"xs"}>
-                    <Skeleton h={45} bg={"blue"} />
-                  </Paper>
-                </Grid.Col>
-              );
-            })}
-        </Grid>
-      </Container>
+      <Box
+        bg={"#fff"}
+        pb={"xl"}
+        style={{
+          borderBottomLeftRadius: "40px",
+          borderBottomRightRadius: "40px",
+          borderBottom: "1px solid #eee",
+        }}
+      >
+        <Container size={"xl"} px={"xs"} pt={"xl"}>
+          <Grid>
+            {Array(6)
+              .fill(0)
+              .map((_, i) => {
+                return (
+                  <Grid.Col key={i} span={{ base: 12, xs: 6, lg: 4 }}>
+                    <Skeleton radius={"xl"} h={60} bg={"blue"} />
+                  </Grid.Col>
+                );
+              })}
+          </Grid>
+        </Container>
+      </Box>
     );
   }
   return (
@@ -82,7 +90,8 @@ const HomeJobCard = () => {
                   onClick={() => {
                     setFilter({
                       region: `${item.id}`,
-                      addres: filter.category,
+                      category: filter.category,
+                      search: filter.search,
                     });
                   }}
                 >
@@ -93,7 +102,9 @@ const HomeJobCard = () => {
                     // style={{ borderLeft: `10px solid ${color}` }}
                   >
                     <Group justify="space-between">
-                      <Text fw={500} size="sm" c={'dimmed'}>{item.name}</Text>
+                      <Text fw={500} size="sm" c={"dimmed"}>
+                        {item.name}
+                      </Text>
                       <IconMapPin color={`${color}`} />
                     </Group>
                   </Card>

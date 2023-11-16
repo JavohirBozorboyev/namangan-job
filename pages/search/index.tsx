@@ -15,26 +15,28 @@ import {
 } from "@mantine/core";
 import { IconMoodEmpty, IconSearch } from "@tabler/icons-react";
 import { deleteCookie, getCookie } from "cookies-next";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import useSWR from "swr";
 import { FilterContext } from "../_app";
+import { useWindowScroll } from "@mantine/hooks";
+import axios from "axios";
 
 type Props = {};
 
 const index = (props: Props) => {
   const { filter, setFilter }: any = useContext(FilterContext);
-
-  const { data, isLoading, error } = useSWR(
-    `/api/${getCookie("lang")}/vacancy/?region=${filter.region}`
-  );
-  const {
-    data: Region,
-    error: erReg,
-    isLoading: loadReg,
-  } = useSWR(`/api/${getCookie("lang")}/region/`);
   const [activePage, setPage] = useState<any>(1);
+  const searchValue = useRef<any>(null);
+  const { data, isLoading, error } = useSWR(
+    `/api/${getCookie("lang")}/vacancy/?region=${
+      filter.region
+    }&page=${activePage}`
+  );
+  const { data: Region, error: erReg } = useSWR(
+    `/api/${getCookie("lang")}/region/`
+  );
 
-  if (error) {
+  if (error || erReg) {
     deleteCookie("lang");
     return <div>failed to load</div>;
   }
@@ -42,6 +44,19 @@ const index = (props: Props) => {
   let SelectData = Region?.map((val: any) => {
     return { value: `${val.id}`, label: val.name };
   });
+
+  const SearchApiCall = async () => {
+    // try {
+    //   const response = await axios.get(
+    //     `/api/uz/vacancy/?positon=${searchValue.current.value}`
+    //   );
+    //   console.log(response, "Search");
+    // } catch (error) {
+    //   console.error(error);
+    // }
+  };
+
+  const [scroll, scrollTo] = useWindowScroll();
 
   return (
     <div>
@@ -65,12 +80,20 @@ const index = (props: Props) => {
               <Input
                 size="md"
                 radius={"xl"}
+                defaultValue={filter.search}
+                ref={searchValue}
                 placeholder="Search job"
                 leftSection={<IconSearch size={"16px"} color="gray" />}
               />
             </Grid.Col>
             <Grid.Col span={{ base: 12, xs: 2 }}>
-              <Button radius={"xl"} size="md" variant="filled" fullWidth>
+              <Button
+                onClick={SearchApiCall}
+                radius={"xl"}
+                size="md"
+                variant="filled"
+                fullWidth
+              >
                 Search
               </Button>
             </Grid.Col>
@@ -114,6 +137,7 @@ const index = (props: Props) => {
               value={activePage}
               onChange={(value) => {
                 setPage(value);
+                scrollTo({ y: 0 });
               }}
               radius={"xl"}
               mt={"lg"}

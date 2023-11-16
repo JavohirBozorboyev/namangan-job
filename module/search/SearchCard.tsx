@@ -13,6 +13,7 @@ import {
   IconBriefcase,
   IconMap2,
   IconPhone,
+  IconCoin,
 } from "@tabler/icons-react";
 import React, { useContext } from "react";
 
@@ -31,13 +32,17 @@ const SearchCard = ({ data }: Props) => {
     <>
       <Grid.Col span={{ base: 12, md: 6 }}>
         <Card radius={"xl"} p="md" pl={"lg"} h={"100%"}>
-          <Text fw={700} size="lg" c="blue">
+          <Text fw={600} size="md" c="blue">
             {data.position}
           </Text>
-          <Text fw={500} mt={"xs"} size="md" c="dark.6">
-            {data.salary}
-          </Text>
-          <Flex gap={"xs"} mt={"xs"}>
+
+          <Flex align={"center"} gap={"xs"} mt={"xs"}>
+            <IconCoin color="gray" size={"20px"} />
+            <Text size="md" c="dark.6">
+              {data.salary}
+            </Text>
+          </Flex>
+          <Flex align={"center"} gap={"xs"} mt={"xs"}>
             <IconSquareCheck color="gray" size={"20px"} />
             <Text size="sm" c={"dimmed"}>
               {data.name.slice(0, 80)}

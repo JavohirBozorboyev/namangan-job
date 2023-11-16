@@ -22,7 +22,7 @@ const EduCard = ({ data }: Props) => {
   return (
     <>
       <Grid.Col span={{ base: 12, sm: 6 }}>
-        <Card withBorder shadow="sm" radius={"md"} padding="md">
+        <Card withBorder radius={"xl"} padding="md">
           <Card.Section>
             <Image src={data.photo} height={240} alt="Norway" />
           </Card.Section>
@@ -46,6 +46,7 @@ const EduCard = ({ data }: Props) => {
             <a href={`tel:${data.phone}`}>
               <Button
                 variant="outline"
+                radius={"xl"}
                 leftSection={<IconPhone size={"20px"} />}
               >
                 Telefon Raqam

@@ -34,14 +34,14 @@ export default function AppHeader({ opened, toggle }: any) {
             px="md"
           >
             <Group align="center">
-              <Burger
+              {/* <Burger
                 opened={opened}
                 onClick={toggle}
                 hiddenFrom="sm"
                 size="sm"
                 bg={"gray.1"}
                 style={{ borderRadius: "4px" }}
-              />
+              /> */}
               <Image src={Logo} alt={""} height={40} />
             </Group>
             <Group visibleFrom="sm">

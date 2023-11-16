@@ -26,11 +26,9 @@ const BottomNavigation = (props: Props) => {
           right: 0,
           zIndex: 99,
           bottom: 0,
-          borderRadius: "20px",
+
           border: "1px solid #F3F3FE",
         }}
-        m={"5px"}
-        mb={"1px"}
         hiddenFrom="sm"
         radius={"xl"}
         bg={"#fff"}

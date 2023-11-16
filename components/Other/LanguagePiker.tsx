@@ -10,10 +10,10 @@ const LanguagePiker = (props: Props) => {
   return (
     <div>
       <Select
-        radius={'xl'}
+        radius={"xl"}
         data={[
           { value: "uz", label: "Uzb" },
-          { value: "kr", label: "Krl" },
+          { value: "kr", label: "Узб" },
         ]}
         defaultValue={`${getCookie("lang")}`}
         w={100}

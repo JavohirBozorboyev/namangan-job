@@ -16,7 +16,11 @@ axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_WEB_URL}`;
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 export default function App({ Component, pageProps }: AppProps) {
-  const [filter, setFilter] = useState({ region: "", category: "" });
+  const [filter, setFilter] = useState({
+    region: "",
+    category: "",
+    search: "",
+  });
   return (
     <FilterContext.Provider value={{ filter, setFilter }}>
       <SWRConfig

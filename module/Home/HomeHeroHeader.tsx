@@ -11,15 +11,32 @@ import {
   Paper,
   Flex,
 } from "@mantine/core";
-import classes from "./css/HeroContentLeft.module.css";
 import { IconSearch } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import Link from "next/link";
 import Image from "next/image";
 import Gerb from "../../public/gerb.png";
+import { useRef, useContext } from "react";
+import { FilterContext } from "@/pages/_app";
+import { getHotkeyHandler } from "@mantine/hooks";
+import { useRouter } from "next/router";
 
 export default function HomeHeroHeader() {
   const matches = useMediaQuery("(min-width: 49em)");
+  const searchValue = useRef<any>(null);
+  const { filter, setFilter }: any = useContext(FilterContext);
+  const router = useRouter();
+
+  const SerachSubmit = () => {
+    setFilter({
+      region: filter.region,
+      category: filter.category,
+      search: `${searchValue?.current?.value}`,
+    });
+    if (searchValue.current.value.length > 1) {
+      router.push("/search");
+    }
+  };
 
   return (
     <>
@@ -44,11 +61,11 @@ export default function HomeHeroHeader() {
               placeholder="blur"
               // quality={100}
               alt=""
-              width={160}
+              width={140}
             />
             <Box mt={"md"}>
               <Text
-                size={"xl"}
+                size={"md"}
                 fw={"500"}
                 ta={"center"}
                 tt={"uppercase"}
@@ -75,26 +92,26 @@ export default function HomeHeroHeader() {
           borderTopRightRadius: "40px",
           borderTop: "1px solid #eee",
         }}
-        pt={'xs'}
+        pt={"xs"}
       >
         <Container size={"md"}>
-          <Flex align={"center"} gap={'5px'}>
+          <Flex align={"center"} gap={"5px"}>
             <Input
               placeholder="Search job"
-              radius={'xl'}
-              
+              radius={"xl"}
               leftSection={
                 <IconSearch style={{ width: rem(20), height: rem(20) }} />
               }
               style={{
                 padding: "15px 0",
               }}
-              // variant="filled"
               size="lg"
               w={"100%"}
+              ref={searchValue}
+              onKeyDown={getHotkeyHandler([["Enter", SerachSubmit]])}
             />
             <Link href={"/search"}>
-              <Button size="lg" radius={'xl'} >
+              <Button size="lg" radius={"xl"} onClick={SerachSubmit}>
                 {matches ? (
                   "Search"
                 ) : (
