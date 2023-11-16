@@ -1,10 +1,21 @@
 "use client";
-import { Grid, Card, Group, Button, Image, Text } from "@mantine/core";
+import {
+  Grid,
+  Card,
+  Group,
+  Button,
+  Image,
+  Text,
+  Box,
+  ActionIcon,
+} from "@mantine/core";
 import {
   IconSquareCheck,
   IconBriefcase,
   IconMap2,
   IconPhone,
+  IconBrandTelegram,
+  IconMapPin,
 } from "@tabler/icons-react";
 import React, { useContext } from "react";
 
@@ -22,10 +33,17 @@ const EduCard = ({ data }: Props) => {
   return (
     <>
       <Grid.Col span={{ base: 12, sm: 6 }}>
-        <Card withBorder radius={"xl"} padding="md">
-          <Card.Section>
-            <Image src={data.photo} height={240} alt="Norway" />
-          </Card.Section>
+        <Card  radius={"xl"} padding="md">
+          <Box>
+            <Image
+              src={data.photo}
+              fit="cover"
+              radius={"lg"}
+              h={280}
+              alt="Norway"
+            />
+          </Box>
+
           <Group mt={"md"}>
             <Text size="xl" fw={"bold"} c={"blue"}>
               {data.name}
@@ -33,7 +51,9 @@ const EduCard = ({ data }: Props) => {
           </Group>
 
           <Group gap={"xs"} mt={"xs"}>
-            <IconMap2 color="gray" size={"20px"} />
+            <ActionIcon radius={'xl'} variant="light">
+              <IconMapPin size={"18px"} />
+            </ActionIcon>
             <Text size="md" c={"gray.7"}>
               {data.adress}
             </Text>
@@ -42,14 +62,23 @@ const EduCard = ({ data }: Props) => {
           <Text mt="xs" c="dimmed" size="sm">
             {data.about} ...
           </Text>
-          <Group mt={"md"}>
+          <Group mt={"md"} gap={"xs"} align="center">
             <a href={`tel:${data.phone}`}>
               <Button
-                variant="outline"
+                variant="light"
                 radius={"xl"}
-                leftSection={<IconPhone size={"20px"} />}
+                leftSection={<IconPhone size={"18px"} />}
               >
                 Telefon Raqam
+              </Button>
+            </a>
+            <a href={``}>
+              <Button
+                variant="light"
+                radius={"xl"}
+                leftSection={<IconBrandTelegram size={"18px"} />}
+              >
+                Telegram
               </Button>
             </a>
           </Group>

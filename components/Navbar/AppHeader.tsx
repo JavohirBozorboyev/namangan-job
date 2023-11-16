@@ -1,27 +1,15 @@
 "use client";
-import {
-  Group,
-  Button,
-  Divider,
-  Box,
-  Burger,
-  Drawer,
-  ScrollArea,
-  rem,
-  Container,
-  Text,
-  AppShell,
-  UnstyledButton,
-  Flex,
-} from "@mantine/core";
+import { Group, Container, Text, AppShell, Flex } from "@mantine/core";
 
 import Logo from "../../public/logo.png";
 import Image from "next/image";
 import { NavData } from "@/data/NavData";
 import Link from "next/link";
 import LanguagePiker from "../Other/LanguagePiker";
+import { useRouter } from "next/router";
 
-export default function AppHeader({ opened, toggle }: any) {
+export default function AppHeader({}: any) {
+  const router = useRouter();
   return (
     <>
       <AppShell.Header>
@@ -42,7 +30,9 @@ export default function AppHeader({ opened, toggle }: any) {
                 bg={"gray.1"}
                 style={{ borderRadius: "4px" }}
               /> */}
-              <Image src={Logo} alt={""} height={40} />
+              <Link href={"/"}>
+                <Image src={Logo} alt={"NamJobs"} height={40} />
+              </Link>
             </Group>
             <Group visibleFrom="sm">
               {NavData.map((item, i) => {
@@ -50,10 +40,18 @@ export default function AppHeader({ opened, toggle }: any) {
                   <Link
                     href={item.url}
                     key={i}
-                    style={{ textDecoration: "none" }}
+                    style={{
+                      textDecoration: "none",
+                    }}
                   >
                     {" "}
-                    <Text size="sm" c="dimmed" fw={"500"}>
+                    <Text
+                      style={{ display: "flex", alignItems: "center" }}
+                      size="sm"
+                      h={"50px"}
+                      c={`${router.route == item.url ? "blue" : "dimmed"}`}
+                      fw={"500"}
+                    >
                       {item.name}
                     </Text>
                   </Link>

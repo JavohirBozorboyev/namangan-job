@@ -33,7 +33,7 @@ const index = (props: Props) => {
 
   return (
     <div>
-      <Container size={"lg"} mb={'md'}>
+      <Container size={"lg"} mb={"md"}>
         <Grid gutter={"xs"}>
           {isLoading
             ? Array(6)
@@ -41,8 +41,8 @@ const index = (props: Props) => {
                 .map((_, i) => {
                   return (
                     <Grid.Col key={i} span={{ base: 12, lg: 6 }}>
-                      <Paper p={"xs"} w={"100%"}>
-                        <Skeleton h={200} radius={"xs"} />
+                      <Paper p={"xs"} w={"100%"} radius={"xl"}>
+                        <Skeleton h={400} radius={"xl"} />
                       </Paper>
                     </Grid.Col>
                   );
