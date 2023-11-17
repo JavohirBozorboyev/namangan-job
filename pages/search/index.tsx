@@ -12,8 +12,10 @@ import {
   Skeleton,
   Title,
   Flex,
+  Box,
+  Text,
 } from "@mantine/core";
-import { IconMoodEmpty, IconSearch } from "@tabler/icons-react";
+import { IconBug, IconMoodEmpty, IconSearch } from "@tabler/icons-react";
 import { deleteCookie, getCookie } from "cookies-next";
 import React, { useState, useContext, useRef } from "react";
 import useSWR from "swr";
@@ -37,13 +39,21 @@ const index = (props: Props) => {
     `/api/${getCookie("lang")}/region/`
   );
 
-  console.log(data);
-
   if (error || erReg) {
     deleteCookie("lang");
-    return <div>failed to load</div>;
+    return (
+      <Box bg={"#fff"} pb={"xl"}>
+        <Container py={"xl"}>
+          <Paper ta={"center"}>
+            <IconBug size={"80px"} color="gray" />
+            <Text size="xl" c={"dimmed"} ta={"center"}>
+              Server bilan muammo yuzaga keldi.
+            </Text>
+          </Paper>
+        </Container>
+      </Box>
+    );
   }
-
   let SelectData = Region?.map((val: any) => {
     return { value: `${val.id}`, label: val.name };
   });
@@ -76,7 +86,6 @@ const index = (props: Props) => {
                 radius={"xl"}
                 size="md"
                 clearable
-                searchable
               />
             </Grid.Col>
             <Grid.Col span={{ base: 12, xs: 6, sm: 7 }}>

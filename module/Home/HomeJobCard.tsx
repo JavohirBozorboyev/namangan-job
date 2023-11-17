@@ -15,7 +15,7 @@ import {
   Paper,
   ActionIcon,
 } from "@mantine/core";
-import { IconMap, IconMapPin, IconPencil } from "@tabler/icons-react";
+import { IconBug, IconMap, IconMapPin, IconPencil } from "@tabler/icons-react";
 import { getCookie } from "cookies-next";
 import Link from "next/link";
 import React, { useContext } from "react";
@@ -30,6 +30,27 @@ const HomeJobCard = () => {
 
   const { filter, setFilter }: any = useContext(FilterContext);
 
+  if (error)
+    return (
+      <Box
+        bg={"#fff"}
+        pb={"xl"}
+        style={{
+          borderBottomLeftRadius: "40px",
+          borderBottomRightRadius: "40px",
+          borderBottom: "1px solid #eee",
+        }}
+      >
+        <Container py={"xl"}>
+          <Paper ta={"center"}>
+            <IconBug size={"80px"} color="gray" />
+            <Text size="xl" c={"dimmed"} ta={"center"}>
+              Server bilan muammo yuzaga keldi.
+            </Text>
+          </Paper>
+        </Container>
+      </Box>
+    );
   if (isLoading) {
     return (
       <Box
@@ -57,6 +78,7 @@ const HomeJobCard = () => {
       </Box>
     );
   }
+
   return (
     <Box
       bg={"#fff"}
@@ -69,7 +91,7 @@ const HomeJobCard = () => {
     >
       <Container size={"xl"} px={"xs"} py={"lg"}>
         <Grid>
-          {data.map((item: any, i: number) => {
+          {data?.map((item: any, i: number) => {
             return (
               <Grid.Col key={i} span={{ base: 12, xs: 6, lg: 4 }}>
                 <Link
