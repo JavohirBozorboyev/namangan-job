@@ -41,43 +41,47 @@ export function Contact() {
 
           <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
             <TextInput
-              label="Name"
-              placeholder="Your name"
+              label="Ism Familiya"
+              placeholder="Ism Familiya"
               name="name"
+              radius={'xl'}
               variant="filled"
               {...form.getInputProps("name")}
             />
             <TextInput
-              label="Tel number"
-              placeholder="Tel"
+              label="Telefon raqam"
+              placeholder="+998"
               name="email"
+              radius={"xl"}
               variant="filled"
               {...form.getInputProps("email")}
             />
           </SimpleGrid>
 
           <TextInput
-            label="Subject"
-            placeholder="Subject"
+            label="Aloqa mavzusi"
+            placeholder="mavzu"
             mt="md"
+            radius={'xl'}
             name="subject"
             variant="filled"
             {...form.getInputProps("subject")}
           />
           <Textarea
             mt="md"
-            label="Message"
-            placeholder="Your message"
+            label="Batafsil malumot"
+            placeholder="Malumot"
             maxRows={10}
             minRows={5}
             autosize
             name="message"
             variant="filled"
+          radius={'xl'}
             {...form.getInputProps("message")}
           />
 
           <Group justify="center" mt="xl">
-            <Button type="submit" size="md">
+            <Button radius={'xl'} type="submit" size="md">
               Send message
             </Button>
           </Group>

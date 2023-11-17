@@ -74,7 +74,7 @@ export default function HomeHeroHeader() {
                 {`O'zbekiston Respublikasi`} <br />
                 {`Kambag'allikni Qisqartirish va Bandlik Vazirligi`}
                 <br />
-                <Text component="span" mr={"xs"} inherit c={"blue"}>
+                <Text component="span" mr={"xs"} inherit>
                   Namangan
                 </Text>
                 {`viloyati Kambag'allikni Qisqartirish`} <br />

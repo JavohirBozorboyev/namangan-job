@@ -141,7 +141,7 @@ const index = (props: Props) => {
               }}
               radius={"xl"}
               mt={"lg"}
-              size={"lg"}
+              size={"md"}
             />
           </>
         )}
