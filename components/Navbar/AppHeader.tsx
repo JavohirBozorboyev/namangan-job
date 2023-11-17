@@ -7,9 +7,13 @@ import { NavData } from "@/data/NavData";
 import Link from "next/link";
 import LanguagePiker from "../Other/LanguagePiker";
 import { useRouter } from "next/router";
+import Nav from "../../lang/Nav.json";
+import { useEffect, useState } from "react";
+import { getCookie } from "cookies-next";
 
 export default function AppHeader({}: any) {
   const router = useRouter();
+
   return (
     <>
       <AppShell.Header>

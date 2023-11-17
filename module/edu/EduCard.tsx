@@ -8,6 +8,7 @@ import {
   Text,
   Box,
   ActionIcon,
+  Flex,
 } from "@mantine/core";
 import {
   IconSquareCheck,
@@ -33,7 +34,7 @@ const EduCard = ({ data }: Props) => {
   return (
     <>
       <Grid.Col span={{ base: 12, sm: 6 }}>
-        <Card  radius={"xl"} padding="md">
+        <Card  radius={"xl"} padding="md" h={'100%'}>
           <Box>
             <Image
               src={data.photo}
@@ -50,14 +51,14 @@ const EduCard = ({ data }: Props) => {
             </Text>
           </Group>
 
-          <Group gap={"xs"} mt={"xs"}>
+          <Flex gap={"xs"} mt={"xs"}>
             <ActionIcon radius={'xl'} variant="light">
               <IconMapPin size={"18px"} />
             </ActionIcon>
             <Text size="md" c={"gray.7"}>
               {data.adress}
             </Text>
-          </Group>
+          </Flex>
 
           <Text mt="xs" c="dimmed" size="sm">
             {data.about} ...

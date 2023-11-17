@@ -77,7 +77,7 @@ export default function HomeHeroHeader() {
                 <Text component="span" mr={"xs"} inherit>
                   Namangan
                 </Text>
-                {`viloyati Kambag'allikni Qisqartirish`} <br />
+                {`viloyati Kambag'allikni Qisqartirish va`} <br />
                 {`bandlik bosh boshqarmasi`}
               </Text>
             </Box>

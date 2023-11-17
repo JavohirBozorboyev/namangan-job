@@ -18,7 +18,7 @@ import { deleteCookie, getCookie } from "cookies-next";
 import React, { useState, useContext, useRef } from "react";
 import useSWR from "swr";
 import { FilterContext } from "../_app";
-import { useWindowScroll } from "@mantine/hooks";
+import { getHotkeyHandler, useWindowScroll } from "@mantine/hooks";
 import axios from "axios";
 
 type Props = {};
@@ -26,15 +26,18 @@ type Props = {};
 const index = (props: Props) => {
   const { filter, setFilter }: any = useContext(FilterContext);
   const [activePage, setPage] = useState<any>(1);
-  const searchValue = useRef<any>(null);
+  const searchValue = useRef<any>("");
+  const [search, setSearch] = useState("");
   const { data, isLoading, error } = useSWR(
-    `/api/${getCookie("lang")}/vacancy/?region=${
+    `/api/${getCookie("lang")}/vacancy/?search=${search}&region=${
       filter.region
     }&page=${activePage}`
   );
   const { data: Region, error: erReg } = useSWR(
     `/api/${getCookie("lang")}/region/`
   );
+
+  console.log(data);
 
   if (error || erReg) {
     deleteCookie("lang");
@@ -46,14 +49,8 @@ const index = (props: Props) => {
   });
 
   const SearchApiCall = async () => {
-    // try {
-    //   const response = await axios.get(
-    //     `/api/uz/vacancy/?positon=${searchValue.current.value}`
-    //   );
-    //   console.log(response, "Search");
-    // } catch (error) {
-    //   console.error(error);
-    // }
+    setSearch(searchValue.current.value);
+    setPage(1);
   };
 
   const [scroll, scrollTo] = useWindowScroll();
@@ -70,10 +67,16 @@ const index = (props: Props) => {
                 defaultValue={filter.region}
                 variant="filled"
                 onChange={(val) => {
-                  setFilter({ region: `${val}`, category: filter.category });
+                  setFilter({
+                    region: `${val == null ? "" : val}`,
+                    category: filter.category,
+                  });
+                  setPage(1);
                 }}
                 radius={"xl"}
                 size="md"
+                clearable
+                searchable
               />
             </Grid.Col>
             <Grid.Col span={{ base: 12, xs: 6, sm: 7 }}>
@@ -82,6 +85,7 @@ const index = (props: Props) => {
                 radius={"xl"}
                 defaultValue={filter.search}
                 ref={searchValue}
+                onKeyDown={getHotkeyHandler([["Enter", SearchApiCall]])}
                 placeholder="Search job"
                 leftSection={<IconSearch size={"16px"} color="gray" />}
               />

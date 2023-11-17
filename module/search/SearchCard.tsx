@@ -31,7 +31,7 @@ const SearchCard = ({ data }: Props) => {
 
   return (
     <>
-      <Grid.Col span={{ base: 12, md: 6 }}>
+      <Grid.Col span={{ base: 12, sm: 6 }}>
         <Card radius={"xl"} p="md" h={"100%"}>
           <Flex align={"center"} gap={"xs"} mt={"xs"}>
             <ActionIcon radius={"lg"} size={"md"} variant="light">
