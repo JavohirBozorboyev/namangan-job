@@ -16,6 +16,7 @@ import {
 } from "@mantine/core";
 import { IconMoodEmpty, IconSearch } from "@tabler/icons-react";
 import { deleteCookie, getCookie } from "cookies-next";
+import Head from "next/head";
 import React, { useState } from "react";
 import useSWR from "swr";
 
@@ -32,7 +33,27 @@ const index = (props: Props) => {
   }
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>Namangan Job - Monomarkazlar</title>
+        <meta
+          name="description"
+          content="Namanganda mavjud kasbga yo'naltirilgan talim markazlar."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="Namangan viloyatidagi tumanlar kasbga yo'naltirilgan talim markazlar"
+        />{" "}
+        <meta
+          name="keywords"
+          content="Namangan, Chust, Uychi, Yangiqo'rg'on, Davlatabod, Norin, Pop, Kosonsoy, Mingbuloq, Chortoq, Norin, tumanlari"
+        />
+        <meta
+          name="author"
+          content="Namangan viloyati Kambag'allikni Qisqartirish va bandlik bosh boshqarmasi"
+        />
+      </Head>
       <Container size={"lg"} mb={"md"}>
         <Grid gutter={"xs"}>
           {isLoading
@@ -52,7 +73,7 @@ const index = (props: Props) => {
               })}
         </Grid>
       </Container>
-    </div>
+    </>
   );
 };
 

@@ -22,6 +22,7 @@ import useSWR from "swr";
 import { FilterContext } from "../_app";
 import { getHotkeyHandler, useWindowScroll } from "@mantine/hooks";
 import axios from "axios";
+import Head from "next/head";
 
 type Props = {};
 
@@ -66,7 +67,25 @@ const index = (props: Props) => {
   const [scroll, scrollTo] = useWindowScroll();
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>{`Namangan Job - Ish o'rinlari`}</title>
+        <meta
+          name="description"
+          content="NAMJOBS bilan o'zingizga mos ish o'rnini toping."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:title"
+          content="Namangan viloyatidagi tumanlar aro bo'sh ish o'rinlari"
+        />
+
+        <meta property="og:url" content="https://www.namjobs.uz/" />
+        <meta
+          name="keywords"
+          content="Namangan, Chust, Uychi, Yangiqo'rg'on, Davlatabod, Norin, Pop, Kosonsoy, Mingbuloq, Chortoq, Norin, tumanlari"
+        />
+      </Head>
       <Container size={"lg"} mb={"lg"} mt={"-xs"}>
         <Paper p={"xs"} mb={"sm"} radius={"xl"}>
           <Grid align="end" gutter={"xs"}>
@@ -159,7 +178,7 @@ const index = (props: Props) => {
           </>
         )}
       </Container>
-    </div>
+    </>
   );
 };
 
