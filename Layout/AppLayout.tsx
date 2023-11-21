@@ -25,6 +25,11 @@ const AppLayout = ({ children }: Props) => {
       <Head>
         <title>Namangan Job</title>
         <meta
+          name="google-site-verification"
+          content="wck5g2JCAnxtuRR2eE5n8iAw7ZHfKgFPCVkOlC7GVCc"
+        />
+        <meta name="yandex-verification" content="9e0fb44a113d84ee" />
+        <meta
           name="description"
           content="O'zbekiston Respublikasi Kambag'allikni Qisqartirish va Bandlik Vazirligi Namangan viloyati Kambag'allikni Qisqartirish va bandlik bosh boshqarmasi NAMJOBS loyihasi. Namanganda mavjud ish o'rinlarini taqdim etadi."
         />
