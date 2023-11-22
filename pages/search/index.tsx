@@ -78,9 +78,7 @@ const index = (props: Props) => {
         <meta
           property="og:title"
           content="Namangan viloyatidagi tumanlar aro bo'sh ish o'rinlari"
-        />
-
-        <meta property="og:url" content="https://www.namjobs.uz/" />
+        />{" "}
         <meta
           name="keywords"
           content="Namangan, Chust, Uychi, Yangiqo'rg'on, Davlatabod, Norin, Pop, Kosonsoy, Mingbuloq, Chortoq, Norin, tumanlari"
